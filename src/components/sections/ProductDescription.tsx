@@ -27,7 +27,7 @@ const ProductDescription = ({
           <p className="text-3xl font-bold mr-4">${price}</p>
           {discount && <span className="text-orange-500 font-bold bg-orange-100 rounded-lg p-1">{discount}%</span>}
         </div>
-        {outdatedPrice && <span className="text-gray-400 font-bold">${outdatedPrice}</span>}
+        {outdatedPrice && <span className="text-gray-400 font-bold line-through">${outdatedPrice}</span>}
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import Article from "../atoms/Article";
 import ProductDescription from "../sections/ProductDescription";
 import Button from "../atoms/Button";
 import CartIcon from "../icons/Cart";
+import InputSumToCart from "../atoms/Input";
 
 const ProductContainer = () => {
   return (
@@ -19,7 +20,10 @@ const ProductContainer = () => {
           outdatedPrice={250.0}
         />
       </Article>
-      <div className="px-5">
+      <div id="add-to-cart" className="m-5">
+        <InputSumToCart/>
+      </div>
+      <div className="px-5 mb-20">
         <Button
           title="Add to cart"
           altImage="Cart"

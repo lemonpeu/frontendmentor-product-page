@@ -11,7 +11,7 @@ const imageStyle = {
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <nav className="p-2 mb-2 md:flex md:items-center">
+    <nav className="p-6 md:flex md:items-center">
       <div className="flex items-center md:flex-row-reverse">
         <button
           className="text-3xl cursor-pointer md:hidden mr-5"
@@ -59,7 +59,7 @@ const Nav = () => {
         </Link>
       </div>
       <ul
-        className={`md:flex md:items-center md:z-auto md:static absolute bg-white w-full left-0  md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 ${
+        className={`md:flex md:items-center z-20 md:z-auto md:static absolute bg-white w-full left-0  md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 ${
           showMenu ? "top-[50px] opacity-100" : ""
         }`}
       >
