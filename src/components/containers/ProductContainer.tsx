@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Article from "../atoms/Article";
 import ProductDescription from "../sections/ProductDescription";
 import Button from "../atoms/Button";
@@ -5,10 +6,33 @@ import CartIcon from "../icons/Cart";
 import InputSumToCart from "../atoms/Input";
 
 const ProductContainer = () => {
+  const [image, setImage] = useState(1)
+
+  const onPreviousImage = () => {
+    const minimumImages = 1
+    if(image <= minimumImages) {
+      return
+    } else {
+      setImage(image - 1)
+    }
+    
+  }
+
+  const onNextImage = () => {
+    const maxImages = 4
+    if(image >= maxImages) {
+      return
+    } else {
+      setImage(image + 1)
+    }
+  }
+  
   return (
     <section>
       <Article
-        imagePath="/images/image-product-1.jpg"
+        onPreviousImage={onPreviousImage}
+        onNextImage={onNextImage}
+        imagePath={`/images/image-product-${image}.jpg`}
         imageAlt="White and beige sneakers with a orange background"
       >
         <ProductDescription

@@ -18,7 +18,7 @@ const ProductDescription = ({
   return (
     <section className="p-5">
       <div className="mb-4">
-        <p className="uppercase font-bold">{title}</p>
+        <p className="uppercase font-bold text-orange-400 text-xs mb-4 tracking-widest">{title}</p>
         <h1 className="font-bold text-[25px]">{productName}</h1>
       </div>
       <p className="text-gray-500">{productDescription}</p>

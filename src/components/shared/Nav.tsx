@@ -1,63 +1,71 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import CartIcon from "../icons/Cart";
 
 const navItems = ["Collections", "Men", "Women", "About", "Contact"];
 
 const imageStyle = {
-    width: "auto"
-}
+  width: "auto",
+};
 
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <nav className="p-6 md:flex md:items-center">
-      <div className="flex items-center md:flex-row-reverse">
-        <button
-          className="text-3xl cursor-pointer md:hidden mr-5"
-          onClick={() => setShowMenu(!showMenu)}
-        >
-          {showMenu ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          )}
-        </button>
-        <Link href="/">
+    <nav className="p-5 md:flex md:items-center">
+      <div className="flex justify-between">
+        <div className="flex items-center md:flex-row-reverse">
+          <button
+            className="text-3xl cursor-pointer md:hidden mr-5"
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            {showMenu ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            )}
+          </button>
+          <Link href="/">
+            <Image src="/images/logo.svg" width={150} height={100} alt="logo" />
+          </Link>
+        </div>
+        <div id="cart-container" className="flex items-center">
+          <span className="mr-6"><CartIcon fill="#7c7c7c" /></span>
           <Image 
-            src="/images/logo.svg"
-            width={150}
-            height={100}
-            alt="logo"
+            src="/images/image-avatar.png"
+            width={30}
+            height={30}
+            alt="user icon"
             />
-        </Link>
+        </div>
       </div>
+
       <ul
         className={`md:flex md:items-center z-20 md:z-auto md:static absolute bg-white w-full left-0  md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 ${
           showMenu ? "top-[50px] opacity-100" : ""
