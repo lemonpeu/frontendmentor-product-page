@@ -5,33 +5,25 @@ import Button from "../atoms/Button";
 import CartIcon from "../icons/Cart";
 import InputSumToCart from "../atoms/Input";
 
+const minimumImages = 1;
+const maxImages = 4;
+
 const ProductContainer = () => {
-  const [image, setImage] = useState(1)
+  const [image, setImage] = useState(1);
 
-  const onPreviousImage = () => {
-    const minimumImages = 1
-    if(image <= minimumImages) {
-      return
-    } else {
-      setImage(image - 1)
+  const changeImage = (increment: number) => {
+    const newImage = image + increment;
+    if (newImage < minimumImages || newImage > maxImages) {
+      return;
     }
-    
-  }
+    setImage(newImage);
+  };
 
-  const onNextImage = () => {
-    const maxImages = 4
-    if(image >= maxImages) {
-      return
-    } else {
-      setImage(image + 1)
-    }
-  }
-  
   return (
     <section>
       <Article
-        onPreviousImage={onPreviousImage}
-        onNextImage={onNextImage}
+        onPreviousImage={() => changeImage(-1)}
+        onNextImage={() => changeImage(1)}
         imagePath={`/images/image-product-${image}.jpg`}
         imageAlt="White and beige sneakers with a orange background"
       >
@@ -45,7 +37,7 @@ const ProductContainer = () => {
         />
       </Article>
       <div id="add-to-cart" className="m-5">
-        <InputSumToCart/>
+        <InputSumToCart />
       </div>
       <div className="px-5 mb-20">
         <Button
@@ -53,9 +45,10 @@ const ProductContainer = () => {
           altImage="Cart"
           imagePath="/images/icon-cart.svg"
           btnStyles="bg-orange-500 justify-center align-center p-4 rounded-[12px]"
-          titleStyles="font-bold text-[#FFFFFF] ml-5">
-            <CartIcon fill="#FFFFFF"/>
-          </Button>
+          titleStyles="font-bold text-[#FFFFFF] ml-5"
+        >
+          <CartIcon fill="#FFFFFF" />
+        </Button>
       </div>
     </section>
   );
